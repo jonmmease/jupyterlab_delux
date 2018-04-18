@@ -1,0 +1,46 @@
+{% set version = "0.1" %}
+{% set jupyterlab_version = "0.32.0" %}
+{% set sha256 = "489c6ba7df0bb8946bc47c19587e6ed35df82e3df7da0f6e8b17061c30a816e1" %}
+
+package:
+  name: jupyterlab_delux
+  version: {{ version }}
+
+source:
+    fn: jupyterlab-{{ jupyterlab_version }}.tar.gz
+    url: https://pypi.io/packages/source/j/jupyterlab/jupyterlab-{{ jupyterlab_version }}.tar.gz
+    sha256: {{ sha256 }}
+build:
+  noarch: python
+  number: 0
+  entry_points:
+    - jupyter-lab = jupyterlab.labapp:main
+    - jupyter-labextension = jupyterlab.labextensions:main
+    - jupyter-labhub = jupyterlab.labhubapp:main
+
+requirements:
+  build:
+    - python
+    - pip
+    - nodejs
+    - ipython
+    - jupyterlab_launcher >=0.10.0,<0.11.0
+  run:
+    - python
+    - jupyterlab_launcher >=0.10.0,<0.11.0
+    - notebook >=4.3
+    - ipywidgets >=7.2
+    - bqplot >=0.10.5
+    - futures  # [py27]
+    - subprocess32   # [py2k and unix]
+  run_constrained:
+    - jupyterlab <0.0.0  # Unsatisfiable so jupyterlab won't be installed alongside jupyterlab_delux
+test:
+  imports:
+    - jupyterlab
+
+about:
+  home: https://github.com/measejm1/jupyterlab_delux
+  license: BSD 3-Clause
+  license_file: LICENSE
+  summary: A proof-of-concept build of JupyterLab with the ipywidgets and bqplot extensions preinstalled
