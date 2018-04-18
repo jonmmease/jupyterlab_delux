@@ -29,10 +29,12 @@ requirements:
     - python
     - jupyterlab_launcher >=0.10.0,<0.11.0
     - notebook >=4.3
-    - ipywidgets >=7.2
-    - bqplot >=0.10.5
     - futures  # [py27]
     - subprocess32   # [py2k and unix]
+
+    # Python packages corresponding to extensions installed in build.sh
+    - ipywidgets >=7.2
+    - bqplot >=0.10.5
   run_constrained:
     - jupyterlab <0.0.0  # Unsatisfiable so jupyterlab won't be installed alongside jupyterlab_delux
 test:

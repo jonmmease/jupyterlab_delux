@@ -72,6 +72,11 @@ $ jupyter lab
 Open `notebooks/test_jupyterlab_delux.ipynb`. Both `ipywidgets` and `bqplot`
 extensions should be working without additional intervention  
 
+Customization
+=============
+Bundled extensions are specified in `jupyter labextension install {extension_name}` commands in `recipe/build.sh`. 
+Python packages corresponding the these extensions are specified as `run` requirements in `recipe/meta.yaml`
+
 Acknowledgements
 ================
 This recipe was initially based on the `jupyterlab` conda-forge feedstock from
