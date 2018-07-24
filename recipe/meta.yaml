@@ -1,45 +1,31 @@
-{% set version = "0.1" %}
-{% set jupyterlab_version = "0.32.0" %}
-{% set sha256 = "489c6ba7df0bb8946bc47c19587e6ed35df82e3df7da0f6e8b17061c30a816e1" %}
+{% set version = "0.2" %}
 
 package:
   name: jupyterlab_delux
   version: {{ version }}
-
+  
 source:
-    fn: jupyterlab-{{ jupyterlab_version }}.tar.gz
-    url: https://pypi.io/packages/source/j/jupyterlab/jupyterlab-{{ jupyterlab_version }}.tar.gz
-    sha256: {{ sha256 }}
+  path: ../
+
 build:
   noarch: python
   number: 0
   entry_points:
-    - jupyter-lab = jupyterlab.labapp:main
-    - jupyter-labextension = jupyterlab.labextensions:main
-    - jupyter-labhub = jupyterlab.labhubapp:main
+    - jupyterlab_delux = jupyterlab_delux:main
 
 requirements:
   build:
     - python
     - pip
     - nodejs
-    - ipython
-    - jupyterlab_launcher >=0.10.0,<0.11.0
+    - jupyterlab =0.32.1
   run:
     - python
-    - jupyterlab_launcher >=0.10.0,<0.11.0
-    - notebook >=4.3
-    - futures  # [py27]
-    - subprocess32   # [py2k and unix]
+    - jupyterlab =0.32.1
 
     # Python packages corresponding to extensions installed in build.sh
     - ipywidgets >=7.2
     - bqplot >=0.10.5
-  run_constrained:
-    - jupyterlab <0.0.0  # Unsatisfiable so jupyterlab won't be installed alongside jupyterlab_delux
-test:
-  imports:
-    - jupyterlab
 
 about:
   home: https://github.com/measejm1/jupyterlab_delux
