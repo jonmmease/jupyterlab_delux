@@ -11,13 +11,14 @@ build:
   noarch: python
   number: 0
   entry_points:
-    - jupyterlab_delux = jupyterlab_delux:main
+    - delux-lab = jupyterlab_delux.labapp:main
+    - delux-labextension = jupyterlab_delux.labextensionapp:main
 
 requirements:
   build:
     - python
     - pip
-    - nodejs
+    - nodejs >=8.0,<10.0
     - jupyterlab =0.32.1
   run:
     - python

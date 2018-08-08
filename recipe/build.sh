@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
 python -m pip install --no-deps --ignore-installed .
 
-# Get Python sys.prefix
-PYTHON_PREFIX=`python -c "import sys; print(sys.prefix)"`
-export JUPYTERLAB_DIR=$JUPYTERLAB_DIR/share/jupyter/delux
+export JUPYTERLAB_DIR=$PREFIX/share/jupyter/delux
 
 # Extensions to install
 jupyter labextension install @jupyter-widgets/jupyterlab-manager --no-build

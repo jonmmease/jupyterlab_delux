@@ -9,7 +9,8 @@ setup_args = dict(
     version          = '0.2',
     packages         = ['jupyterlab_delux', ],
     entry_points     = {'console_scripts': [
-                            'jupyterlab_delux = jupyterlab_delux:main',
+                            'delux-lab = jupyterlab_delux.labapp:main',
+                            'delux-labextension = jupyterlab_delux.labextensionapp:main',
                         ]},
     author           = 'Jupyter Development Team',
     url              = 'https://github.com/measejm1/jupyterlab_delux',
