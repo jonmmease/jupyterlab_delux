@@ -5,7 +5,7 @@ from setuptools import setup
 
 setup_args = dict(
     name             = 'jupyterlab_{{ cookiecutter.project_slug }}',
-    description      = '{{ cookiecutter.short_description }}',
+    description      = '{{ cookiecutter.project_short_description }}',
     version          = '{{ cookiecutter.version }}',
     packages         = ['jupyterlab_{{ cookiecutter.project_slug }}', ],
     entry_points     = {'console_scripts': [
@@ -15,6 +15,7 @@ setup_args = dict(
     author           = '{{ cookiecutter.full_name }}',
     author_email     = '{{ cookiecutter.email }}',
     url              = 'https://github.com/{{ cookiecutter.github_username }}/jupyterlab_{{ cookiecutter.project_slug }}',
+    install_requires = ['jupyterlab', ],
     license          = 'BSD 3-Clause',
     platforms        = "Linux, Mac OS X, Windows",
     keywords         = ['jupyterlab', 'jupyter', 'conda'],

@@ -1,8 +1,8 @@
-{% set data = load_setup_py_data() %}
+{{ '{% set data = load_setup_py_data() %}' }}
 
 package:
   name: jupyterlab_{{ cookiecutter.project_slug }}
-  version: {{ data.get('version') }}
+  version: {{ "{{ data.get('version') }}" }}
   
 source:
   path: ../
@@ -31,4 +31,4 @@ about:
   home: https://github.com/{{ cookiecutter.github_username }}/jupyterlab_{{ cookiecutter.project_slug }}
   license: BSD 3-Clause
   license_file: LICENSE
-  summary: {{ data.get('description') }}
+  summary: {{ "{{ data.get('description') }}" }}
