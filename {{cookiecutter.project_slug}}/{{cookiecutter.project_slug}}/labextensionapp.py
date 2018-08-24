@@ -4,7 +4,7 @@ from jupyterlab import labextensions
 
 
 def main():
-    os.environ['JUPYTERLAB_DIR'] = os.path.join(sys.prefix, 'share', 'jupyter', 'delux')
+    os.environ['JUPYTERLAB_DIR'] = os.path.join(sys.prefix, 'share', 'jupyter', '{{ cookiecutter.project_slug }}')
     labextensions.BaseExtensionApp.app_dir = os.environ['JUPYTERLAB_DIR']
     labextensions.main()
     
