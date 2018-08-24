@@ -4,6 +4,7 @@ SET JUPYTERLAB_DIR=%PREFIX%\share\jupyter\{{ cookiecutter.project_slug }}
 
 REM Extensions to install
 SET NODE_OPTIONS=--max-old-space-size=16000
+REM Add below the extensions you want to package
 jupyter labextension install @jupyter-widgets/jupyterlab-manager --no-build
 jupyter labextension install bqplot --no-build
 jupyter lab build
