@@ -83,5 +83,5 @@ This project is licensed under the terms of the [BSD 3-Clause License](/LICENSE)
 References
 ----------
 
-* [JupyterLab]()
-* [conda packaging]()
+* [JupyterLab](https://jupyterlab.readthedocs.io/en/stable)
+* [conda packaging](https://conda.io/docs/user-guide/tasks/building-packages/index.html)
