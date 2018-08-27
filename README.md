@@ -53,6 +53,11 @@ Comments:
 
 * You can specify JupyterLab extension versions to install using the npm notation *extension_name@version*.
 * You can specify JupyterLab and Jupyter server extensions versions using conda notation *package =X.Y.Z* or *package >=X.Y.Z*
+* On Windows, the build process may crash due to the folder name length limit. To overcome that problem, you
+can specify a custom folder to build conda package into:
+```bash
+conda build -c conda-forge --croot C:\Temp recipe
+```
 
 Implementation Notes
 --------------------
