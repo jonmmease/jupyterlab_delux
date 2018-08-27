@@ -1,11 +1,14 @@
 # JupyterLab {{ cookiecutter.project_name }}
 
-Conda recipe to package JupyterLab with preinstalled extensions.
+Conda recipe to package JupyterLab with the following preinstalled extensions:
 
-The package created has two scripts:
+- IPywidgets
+- Bqplot
 
-* *project_slug*`-lab` equivalent for the bundle to `jupyter lab`
-* *project_slug*`-labextension` equivalent for the bundle to `jupyter labextension`
+The package created has two commands:
+
+* `{{ cookiecutter.project_slug }}-lab` equivalent for the bundle to `jupyter lab`
+* `{{ cookiecutter.project_slug }}-labextension` equivalent for the bundle to `jupyter labextension`
 
 This means that, if the user has `nodejs` installed and internet access, he can manage
 extensions as with the standard JupyterLab.
@@ -19,18 +22,13 @@ set of extensions.
 
 Note: If users are operating in an online environment, they 
 would still be able to add/remove extensions themselves after installation.
-In this case, they will have to specify the `JUPYTERLAB_DIR` variable before
-calling `jupyter labextension install my_extenstion` or use the argument `app-dir`:
-
-```bash
-jupyter labextension install --app_dir=$CONDA_PREFIX/share/jupyter/delux my_extension
-```
+In this case, they will have to use the `{{ cookiecutter.project_slug }}-labextension` command instead of the standard `jupyter labextension` one.
 
 ### Offline Installation
 
-A build of JupyterLab with predefined extensions could be installed in an 
-offline environment, without requiring nodejs or access to an
-npm repository.
+This build of JupyterLab with predefined extensions could be installed in an 
+offline environment, without requiring *nodejs* or access to an
+*npm* repository.
 
 ## Limitations
 
@@ -59,7 +57,7 @@ As displayed by the `conda build` command, this will create a conda package in y
 Comments:
 
 * You can specify JupyterLab extension versions to install using the npm notation *extension_name@version*.
-* You can specify JupyterLab and Jupyter server extensions versions using conda notation *package =X.Y.Z* or *package >=X.Y.Z*
+* You can specify Jupyter server extensions versions using conda notation *package =X.Y.Z* or *package >=X.Y.Z*
 
 Create a fresh environment and then install this package. The `--use-local` flag
 tells `conda` to look in the `conda-bld` directory for packages. This step requires
@@ -67,7 +65,7 @@ configured `conda` channels, but not `nodejs` or an `npm` repository.
 
 ```bash
 conda create -n test_{{ cookiecutter.project_slug }}_lab python>=3.5
-source activate test_{{ cookiecutter.project_slug }}_lab
+conda activate test_{{ cookiecutter.project_slug }}_lab
 conda install jupyterlab_{{ cookiecutter.project_slug }} --use-local
 ```
 
@@ -79,3 +77,18 @@ Launch JupyterLab with preinstalled extensions
 
 Open `notebooks/test_jupyterlab_{{ cookiecutter.project_slug }}.ipynb`. Both `ipywidgets` and `bqplot`
 extensions should be working without additional intervention.
+
+Comment: 
+
+When you are statisfied with the built package, you can share it 
+by sending the `*.tar.bz2` archive file found in the `anaconda/conda-bld/noarch` directory. An user will be able to install it
+using the following command (provided he has all dependencies fullfilled):
+
+```bash
+conda install jupyterlab_{{ cookiecutter.project_slug }}
+```
+
+## References
+
+* [JupyterLab](https://jupyterlab.readthedocs.io/en/stable)
+* [conda packaging](https://conda.io/docs/user-guide/tasks/building-packages/index.html)
