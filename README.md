@@ -38,7 +38,7 @@ Usage
 
 1. Adapt the template to bundle the extensions you want
     1. Add the JupyterLab extension installation commands in `recipe/bld.bat` and `recipe/build.sh`
-    They will have the following structure `jupyter labextension` *extension_name* `--no-build`
+    They will have the following structure `jupyter labextension install` *extension_name* `--no-build`
     1. Add the Jupyter server extensions needed by the JupyterLab extensions in the `run` section of `recipe/meta.yaml`
 
 1. Generate the conda package
@@ -54,7 +54,8 @@ Comments:
 * You can specify JupyterLab extension versions to install using the npm notation *extension_name@version*.
 * You can specify JupyterLab and Jupyter server extensions versions using conda notation *package =X.Y.Z* or *package >=X.Y.Z*
 * On Windows, the build process may crash due to the folder name length limit. To overcome that problem, you
-can specify a custom folder to build conda package into:
+can specify a custom folder to build conda package into:
+
 ```bash
 conda build -c conda-forge --croot C:\Temp recipe
 ```
