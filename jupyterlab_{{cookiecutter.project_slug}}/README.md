@@ -43,7 +43,7 @@ for discussion on that front.
 
 1. Adapt the template to bundle the extensions you want
     1. Add the JupyterLab extension installation commands in `recipe/bld.bat` and `recipe/build.sh`
-    They will have the following structure `jupyter labextension` *extension_name* `--no-build`
+    They will have the following structure `jupyter labextension install` *extension_name* `--no-build`
     1. Add the Jupyter server extensions needed by the JupyterLab extensions in the `run` section of `recipe/meta.yaml`
 
 1. Generate the conda package
