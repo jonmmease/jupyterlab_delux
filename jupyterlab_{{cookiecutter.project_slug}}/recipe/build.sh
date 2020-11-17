@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 $PYTHON -m pip install --no-deps --ignore-installed .
 
-export JUPYTERLAB_DIR=$PREFIX/share/jupyter/delux
+export JUPYTERLAB_DIR=$PREFIX/share/jupyter/{{ cookiecutter.project_slug }}
 
 # Extensions to install
 export NODE_OPTIONS=--max-old-space-size=16000
